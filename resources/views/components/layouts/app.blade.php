@@ -9,6 +9,7 @@
     <body>
         <div class="container">
         <livewire:nav-bar/>
+        <livewire:admin-notifications />
         {{ $slot }}
     </div>
     </body>
