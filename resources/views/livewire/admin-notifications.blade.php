@@ -40,10 +40,3 @@
  });
 </script> --}}
 
-
-<script>
-    window.Echo.channel('admin-notifications')
-        .listen('customer.created', (e) => {
-            alert(`New customer added: ${e.customer.name}`);
-        });
-</script>

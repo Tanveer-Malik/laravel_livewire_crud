@@ -34,10 +34,10 @@ class CustomerCreated implements ShouldBroadcastNow
      */
     public function broadcastOn()
     {
-        return new Channel('admin-notifications');
-        // return [
-        //     new PrivateChannel('channel-name'),
-        // ];
+        // return new Channel('admin-notifications');
+        return [
+            new PrivateChannel('admin-notifications'),
+        ];
     }
     public function broadcastAs()
     {
