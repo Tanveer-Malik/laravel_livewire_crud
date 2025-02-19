@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\AdminNotifications;
 use App\Livewire\CreateCustomer;
 use App\Livewire\Customers;
 use App\Livewire\EditCustomer;
@@ -17,6 +18,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/customers',Customers::class);
     Route::get('/customers/{customer}',ViewCustomer::class);
     Route::get('/customers/{customer}/edit',EditCustomer::class);
+    // Route::get('/admin-notifications',AdminNotifications::class);
 });
 
 
