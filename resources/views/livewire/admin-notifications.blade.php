@@ -1,6 +1,6 @@
 <div class="position-fixed top-0 end-0 p-3" style="z-index: 1050;">
     {{-- @dd($notifications); --}}
-    @foreach($notifications as $notification)
+    @foreach ($notifications as $notification)
         <div class="alert alert-info alert-dismissible fade show" role="alert">
             {{ $notification }}
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -22,8 +22,8 @@
         });
     });
 </script> --}}
-<script src="https://js.pusher.com/7.2/pusher.min.js"></script>
-<script>
+{{-- <script src="https://js.pusher.com/7.2/pusher.min.js"></script> --}}
+{{-- <script>
     const pusher  = new Pusher('c585b27c74c41c06e3b7', {cluster: 'ap2'});
   const channel = pusher.subscribe('public');
 
@@ -38,5 +38,12 @@
        $(document).scrollTop($(document).height());
  });
  });
-</script>
+</script> --}}
 
+
+<script>
+    window.Echo.channel('admin-notifications')
+        .listen('customer.created', (e) => {
+            alert(`New customer added: ${e.customer.name}`);
+        });
+</script>
