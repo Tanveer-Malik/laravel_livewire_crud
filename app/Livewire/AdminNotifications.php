@@ -14,12 +14,15 @@ class AdminNotifications extends Component
     {
         $this->notifications[] = "New customer created: {$customer['name']} ({$customer['email']})";
 
-        // Auto remove after 5 seconds
         $this->dispatchBrowserEvent('remove-toast');
     }
+    
+    
 
     public function render()
     {
+        // die;
+        // $this->dispatchBrowserEvent('show-toast');
         return view('livewire.admin-notifications');
     }
 }

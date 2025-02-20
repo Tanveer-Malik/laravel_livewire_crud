@@ -12,13 +12,31 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 import './echo';
 
 
+// import Echo from 'laravel-echo';
+// import Pusher from 'pusher-js';
+
+// window.Pusher = Pusher;
+// window.Echo = new Echo({
+//     broadcaster: 'pusher',
+//     key: process.env.MIX_PUSHER_APP_KEY,
+//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+//     forceTLS: true
+// });
+
 import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
 
 window.Pusher = Pusher;
+
 window.Echo = new Echo({
     broadcaster: 'pusher',
-    key: process.env.MIX_PUSHER_APP_KEY,
-    cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-    forceTLS: true
+    key: '3bc8e471e860cd63036e',
+    cluster: 'ap2',
+    encrypted: true
 });
+
+window.Echo.private('admin-notifications')
+    .listen('.customer.created', (e) => {
+        Livewire.emit('customerCreated', e.customer);
+    });
+

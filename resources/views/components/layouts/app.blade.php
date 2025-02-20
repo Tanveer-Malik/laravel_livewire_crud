@@ -21,12 +21,15 @@
         // Pusher.logToConsole = true;
 
         var pusher = new Pusher('3bc8e471e860cd63036e', {
-            cluster: 'ap2'
+            cluster: 'ap2',
+            encrypted: true
         });
 
         var channel = pusher.subscribe('admin-notifications');
         channel.bind('customer.created', function(data) {
-            alert(JSON.stringify(data));
+            // alert(JSON.stringify(data));
+            console.log("Customer Created Event Received: ", data);
+            // Livewire.emit('customerCreated', data.customer); // Send data to Livewire component
         });
     </script>
 </body>

@@ -7,6 +7,11 @@
         </div>
     @endforeach
 </div>
+<script>
+    window.addEventListener('show-toast', function () {
+        alert("New customer created!");
+    });
+</script>
 
 {{-- <script>
     document.addEventListener('DOMContentLoaded', function () {
